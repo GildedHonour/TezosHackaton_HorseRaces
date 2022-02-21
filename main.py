@@ -28,7 +28,7 @@ class Race:
 
     def delete_horse(self, horse_id: sp.TNat):
         sp.verify(len(horse_ids) > 0, message="nothing to delete: there're no horses")
-        del self.horse_ids(horse_count)
+        self.horse_ids.remove(horse_id)
 
     def is_active(self):
         return (started_at > sp.timestamp(0)) && (ended_at == sp.timestamp(0))
@@ -53,3 +53,17 @@ class RaceManager(sp.Contract):
         for x in self.data.races:
             if x.id == race_id:
                 x.started_at = sp.now
+
+
+# to simulate smart contract events
+class EventManager(sp.Contract):
+    def __init__(self):
+        pass
+
+    @entry_point
+    def trigger_add_race(self, params):
+        pass
+
+    @entry_point
+    def trigger_start_race(self, params):
+        pass
