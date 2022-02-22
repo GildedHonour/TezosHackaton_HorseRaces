@@ -31,7 +31,7 @@ class Race:
         self.horse_ids.remove(horse_id)
 
     def is_active(self):
-        return (started_at > sp.timestamp(0)) && (ended_at == sp.timestamp(0))
+        return (started_at > sp.timestamp(0)) and (ended_at == sp.timestamp(0))
 
 
 class RaceManager(sp.Contract):
@@ -60,10 +60,10 @@ class EventManager(sp.Contract):
     def __init__(self):
         pass
 
-    @entry_point
+    @sp.entry_point
     def trigger_add_race(self, params):
         pass
 
-    @entry_point
+    @sp.entry_point
     def trigger_start_race(self, params):
         pass
